@@ -13,3 +13,8 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+cmd/__debug_bin
+go.work.sum
+go.work
+.vscode
+deploy/svc
