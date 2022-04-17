@@ -121,7 +121,9 @@ func TestListTables(t *testing.T) {
 func TestCreateDB(t *testing.T) {
 	cli := client.New()
 	cli.SetBasePath("http://localhost:8080")
-	o, err := cli.CreateDB("auth","host=localhost user=postgres password=Aa1234 dbname=auth")
+	// o, err := cli.CreateDB("auth","host=localhost user=postgres password=Aa1234 dbname=auth")
+	// assert.NoError(t, err)
+	// log.Printf("%#v", o)
+	err := cli.CreateDB("dc", "host=localhost user=postgres password=Aa1234 dbname=dc")
 	assert.NoError(t, err)
-	log.Printf("%#v", o)
 }

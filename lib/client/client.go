@@ -67,16 +67,28 @@ func (c Client) Init(n string) (out string, err error) {
 	return
 }
 
-func (c Client) CreateDB(n string, dsn string) (out string, err error) {
-	_, err = c.Admin(&types.DBIn{Q: "create database " + n})
-	if err != nil {
-		return
-	}
-	_, err = c.SetTenant(n, dsn)
-	if err != nil {
-		return
-	}
+// func (c Client) CreateDB(n string, dsn string) (out string, err error) {
+// 	_, err = c.Admin(&types.DBIn{Q: "create database " + n})
+// 	if err != nil {
+// 		return
+// 	}
+// 	_, err = c.SetTenant(n, dsn)
+// 	if err != nil {
+// 		return
+// 	}
 
-	out, err = c.Init(n)
+// 	out, err = c.Init(n)
+// 	return
+// }
+
+func (c Client) CreateDB(n string, dsn string) (err error) {
+	var i interface{}
+	err = c.cli.JsonPost("/db/"+n+"/create", dsn, i)
+	return
+}
+
+func (c Client) DropDB(n string, dsn string) (err error) {
+	var i interface{}
+	err = c.cli.JsonDelete("/db/"+n+"/drop", i)
 	return
 }
