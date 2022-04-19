@@ -14,3 +14,7 @@ Set-Cookie: X-SESSIONID=FuYQ4ajjbHY-myWCMczkwUNxpFFG
 
 GET http://localhost:8080/auth/tenant
 Set-Cookie: X-SESSIONID=FuYQ4ajjbHY-myWCMczkwUNxpFFG
+
+###
+GET http://localhost:8080/__help
+Set-Cookie: X-SESSIONID=FuYQ4ajjbHY-myWCMczkwUNxpFFG
